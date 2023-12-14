@@ -84,7 +84,7 @@ public class Study extends BaseEntity {
     @Column(name = "end_date", length = 20)
     private String endDate;
 
-    public Study(String title, State state, City city, Category category, Topic topic, MemberCheckType memberCheckType, ProgressType progressType) {
+    public Study(String title, State state, City city, Category category, Topic topic, MemberCheckType memberCheckType, ProgressType progressType, List<Integer> steps) {
         this.title = title;
         this.state = state;
         this.city = city;
@@ -92,5 +92,6 @@ public class Study extends BaseEntity {
         this.topic = topic;
         this.memberCheckType = memberCheckType;
         this.progressType = progressType;
+        this.steps = steps;
     }
 }
