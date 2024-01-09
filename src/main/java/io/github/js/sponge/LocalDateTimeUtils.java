@@ -1,9 +1,14 @@
 package io.github.js.sponge;
 
+import lombok.NoArgsConstructor;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class TimeUtil {
+import static lombok.AccessLevel.PRIVATE;
+
+@NoArgsConstructor(access = PRIVATE)
+public class LocalDateTimeUtils {
 
     private static final String BASIC_DATE_TIME_FORMAT = "yyyy-MM-dd hh:mm:ss";
 

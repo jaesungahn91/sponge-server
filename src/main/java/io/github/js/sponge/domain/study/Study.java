@@ -3,10 +3,7 @@ package io.github.js.sponge.domain.study;
 import io.github.js.sponge.domain.common.BaseEntity;
 import io.hypersistence.utils.hibernate.type.array.ListArrayType;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.Where;
@@ -16,8 +13,9 @@ import java.util.List;
 
 import static lombok.AccessLevel.PROTECTED;
 
+
+@ToString
 @NoArgsConstructor(access = PROTECTED)
-@AllArgsConstructor
 @Getter
 @EqualsAndHashCode(of = "studySeq", callSuper = true)
 @DynamicUpdate
@@ -78,20 +76,10 @@ public class Study extends BaseEntity {
 
     private Boolean isDateDiscuss;                                  // 협의 예정 플래그
 
-    @Column(name = "start_date", length = 20)
-    private String startDate;
+    @Column(name = "start_date")
+    private LocalDateTime startDate;
 
-    @Column(name = "end_date", length = 20)
-    private String endDate;
+    @Column(name = "end_date")
+    private LocalDateTime endDate;
 
-    public Study(String title, State state, City city, Category category, Topic topic, MemberCheckType memberCheckType, ProgressType progressType, List<Integer> steps) {
-        this.title = title;
-        this.state = state;
-        this.city = city;
-        this.category = category;
-        this.topic = topic;
-        this.memberCheckType = memberCheckType;
-        this.progressType = progressType;
-        this.steps = steps;
-    }
 }

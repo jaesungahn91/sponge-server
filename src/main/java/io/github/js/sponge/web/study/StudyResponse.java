@@ -2,10 +2,11 @@ package io.github.js.sponge.web.study;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import io.github.js.sponge.TimeUtil;
 import io.github.js.sponge.domain.study.Study;
 
 import java.util.List;
+
+import static io.github.js.sponge.LocalDateTimeUtils.format;
 
 @JsonNaming(value = PropertyNamingStrategies.SnakeCaseStrategy.class)
 public record StudyResponse(Long studySeq,
@@ -31,9 +32,9 @@ public record StudyResponse(Long studySeq,
 
     public static StudyResponse from(Study study) {
         return new StudyResponse(study.getStudySeq(),
-                TimeUtil.format(study.getCreatedAt()),
-                TimeUtil.format(study.getUpdatedAt()),
-                TimeUtil.format(study.getExpiredAt()),
+                format(study.getCreatedAt()),
+                format(study.getUpdatedAt()),
+                format(study.getExpiredAt()),
                 study.getTitle(),
                 study.getContent(),
                 study.getObjective(),
@@ -46,8 +47,8 @@ public record StudyResponse(Long studySeq,
                 study.getIsEnded(),
                 study.getMemberCheckType().getName(),
                 study.getProgressType().getName(),
-                study.getStartDate(),
-                study.getEndDate(),
+                format(study.getStartDate()),
+                format(study.getEndDate()),
                 study.getSteps());
     }
 
